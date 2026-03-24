@@ -13,14 +13,7 @@ public class TrainConsistManagementApp {
         System.out.println("=== Train Consist Management App ===");
         System.out.println();
 
-        // UC1: Initialize an empty List using ArrayList to store bogies
-        List<String> passengerBogies = new ArrayList<>();
-
-        // Display the initial bogie count
-        System.out.println("Train consist initialized successfully.");
-        System.out.println("Initial bogie count: " + passengerBogies.size());
-        System.out.println();
-
+      
         // UC2: Add Passenger Bogies to Train (ArrayList Operations)
         System.out.println("--- UC2: Adding Passenger Bogies ---");
         System.out.println();
