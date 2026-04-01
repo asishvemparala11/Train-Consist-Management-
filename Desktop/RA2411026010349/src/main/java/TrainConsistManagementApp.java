@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Train Consist Management App
- * UC7: Sort Bogies by Capacity (Comparator)
+ * UC7: Sort Bogies Using Comparator
  */
 
 /**
@@ -40,53 +40,56 @@ public class TrainConsistManagementApp {
         System.out.println("=== Train Consist Management App ===");
         System.out.println();
 
-        // UC7: Sort Bogies by Capacity (Comparator)
-        System.out.println("--- UC7: Sort Bogies by Capacity (Comparator) ---");
+        // UC7: Sort Bogies Using Comparator
+        System.out.println("--- UC7: Sort Bogies Using Comparator ---");
         System.out.println();
 
-        // Create a List<Bogie> to store passenger bogies
+        // Create a List<Bogie> to store bogies
         List<Bogie> bogies = new ArrayList<>();
-
-        // Add bogies with their capacities
-        System.out.println("Creating passenger bogie objects...");
         bogies.add(new Bogie("Sleeper", 72));
-        System.out.println("Added: Sleeper with 72 seats");
         bogies.add(new Bogie("AC Chair", 96));
-        System.out.println("Added: AC Chair with 96 seats");
         bogies.add(new Bogie("First Class", 48));
-        System.out.println("Added: First Class with 48 seats");
-        System.out.println();
+        bogies.add(new Bogie("General", 120));
 
-        // Display bogies before sorting
-        System.out.println("Bogies before sorting (insertion order):");
-        int count = 1;
-        for (Bogie bogie : bogies) {
-            System.out.println(count + ". " + bogie);
-            count++;
+        // Display unsorted bogies
+        System.out.println("Unsorted bogies:");
+        for (int i = 0; i < bogies.size(); i++) {
+            System.out.println((i + 1) + ". " + bogies.get(i));
         }
         System.out.println();
 
-        // Sort the list using Comparator.comparingInt()
-        System.out.println("Sorting bogies by seating capacity...");
+        // Sort bogies by capacity in ascending order using Comparator
+        System.out.println("Sorting bogies by capacity (ascending)...");
         bogies.sort(Comparator.comparingInt(Bogie::getCapacity));
         System.out.println("Sorting completed.");
         System.out.println();
 
-        // Display bogies after sorting
-        System.out.println("Bogies after sorting by capacity (ascending):");
-        count = 1;
-        for (Bogie bogie : bogies) {
-            System.out.println(count + ". " + bogie);
-            count++;
+        // Display sorted bogies
+        System.out.println("Sorted bogies (by capacity ascending):");
+        for (int i = 0; i < bogies.size(); i++) {
+            System.out.println((i + 1) + ". " + bogies.get(i));
+        }
+        System.out.println();
+
+        // Sort by capacity descending
+        System.out.println("Sorting bogies by capacity (descending)...");
+        bogies.sort(Comparator.comparingInt(Bogie::getCapacity).reversed());
+        System.out.println("Sorting completed.");
+        System.out.println();
+
+        // Display sorted bogies descending
+        System.out.println("Sorted bogies (by capacity descending):");
+        for (int i = 0; i < bogies.size(); i++) {
+            System.out.println((i + 1) + ". " + bogies.get(i));
         }
         System.out.println();
 
         System.out.println("Key Benefits of Comparator:");
-        System.out.println("✓ Introduces object-based collection handling");
-        System.out.println("✓ Enables custom sorting based on business rules");
-        System.out.println("✓ Improves train planning and capacity analysis");
-        System.out.println("✓ Demonstrates separation of data and logic");
-        System.out.println("✓ Prepares for enterprise-level sorting operations");
+        System.out.println("✓ Flexible sorting without modifying the class");
+        System.out.println("✓ Chain comparators for multiple criteria");
+        System.out.println("✓ Reusable and composable");
+        System.out.println("✓ Improves code readability and maintainability");
+        System.out.println("✓ Supports both ascending and descending order");
         System.out.println();
 
         System.out.println("Program continues...");
